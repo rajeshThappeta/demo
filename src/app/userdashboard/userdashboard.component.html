@@ -1,0 +1,50 @@
+<h4 class="text-right text-success">Welcome , {{username}}</h4>
+<img [src]=userObj?.image width="100px" alt="">
+<button class="btn btn-warning" (click)="showUpdateForm()">Update profile</button>
+<button class="btn btn-danger float-end m-3" (click)="deleteUserProfile()">delete profile</button>
+<button class="btn btn-info" (click)="userLogout()">Logout</button>
+
+<table class="table text-center table-bordered mt-5">
+    <thead>
+        <th>Name</th>
+        <th>Username</th>
+        <th>E-mail</th>
+        <th>Date of birth</th>
+    </thead>
+    <tr>
+        <td>{{userObj?.name}}</td>
+        <td>{{userObj?.username}}</td>
+        <td>{{userObj?.email}}</td>
+        <td>{{userObj?.dob}}</td>
+    </tr>
+</table>
+
+
+<!-- profile edit form -->
+<div *ngIf="updateFormStatus">
+    <form #ref="ngForm" (ngSubmit)="saveUpdatedUser(ref)">
+        <div class="form-group">
+            <label for="">Username</label>
+            <input type="text" name="username" id="" [ngModel]="userObj?.username" class="form-control" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" name="name" id="" [ngModel]="userObj?.name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" name="email" id="" [ngModel]="userObj?.email" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="">Date of birth</label>
+            <input type="date" name="dob" id="" [ngModel]="userObj?.dob" class="form-control">
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </form>
+</div>

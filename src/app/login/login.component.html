@@ -1,0 +1,38 @@
+
+<div class="row justify-content-center">
+    <p class="display-4 text-info text-center">Login</p>
+    <hr>
+    <div class="col-sm-8">
+        <form #ref="ngForm" (ngSubmit)="login(ref)">
+
+            <!-- radio buttons -->
+            <div class="form-check">
+               <input type="radio" name="userType" value="user" id="user" class="form-check-input" ngModel>
+               <label for="user">User</label>
+            </div>
+
+            <div class="form-check">
+                <input type="radio" name="userType" value="admin" id="admin" class="form-check-input" ngModel>
+                <label for="admin">Admin</label>
+             </div>
+
+
+            <!-- name field -->
+            <div class="form-group mb-2">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username"  class="form-control" ngModel>
+            </div>
+
+             <!-- user field -->
+             <div class="form-group mb-2">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password"  class="form-control" ngModel>
+            </div>
+
+            
+            <button type="submit" class="btn btn-success d-block mx-auto">Login</button>
+        
+        
+        </form>
+    </div>
+</div>
